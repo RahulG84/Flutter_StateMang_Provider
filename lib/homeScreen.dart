@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final userName =
-        context.watch<InputTextControllerProvider>().nameController.text;
+        context.watch<InputTextControllerProvider>().nameController;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Hello $userName',
+              'Hello ${userName.text}',
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 20,
@@ -41,6 +41,9 @@ class _HomeState extends State<Home> {
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
+                setState(() {
+                  userName.text = '';
+                });
               },
               child: const Text(
                 'Back',

@@ -38,7 +38,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final nameControllers =
+    var nameControllers =
         context.watch<InputTextControllerProvider>().nameController;
     return Scaffold(
       appBar: AppBar(
